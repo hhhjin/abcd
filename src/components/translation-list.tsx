@@ -26,9 +26,7 @@ export function TranslationList() {
 
 	const handleDeleteAll = async () => {
 		if (translations.length === 0) return
-		if (confirm('Are you sure you want to delete all translations?')) {
-			await deleteAllTranslations()
-		}
+		await deleteAllTranslations()
 	}
 
 	if (isLoading) {

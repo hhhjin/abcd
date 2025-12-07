@@ -19,8 +19,7 @@ export function useTranslations() {
 	}
 
 	const deleteAllTranslations = async () => {
-		await chrome.storage.local.remove(['translations'])
-		setTranslations([])
+		await setTranslations([])
 	}
 
 	const formatPairText = (entry: Translation) => {
