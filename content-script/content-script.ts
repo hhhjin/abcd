@@ -55,6 +55,10 @@ interface WindowWithExtension extends Window {
 		if (event.key === 'Enter' && !event.shiftKey) {
 			const target = event.target as HTMLElement
 			if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+				// Skip if input/textarea is inside a form (form submit will handle it)
+				if (target.closest('form')) {
+					return
+				}
 				const inputElement = target as HTMLInputElement | HTMLTextAreaElement
 				const value = inputElement.value.trim()
 				if (value) {
