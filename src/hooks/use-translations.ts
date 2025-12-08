@@ -34,7 +34,10 @@ export function useTranslations() {
 
 	const copyAll = async () => {
 		if (translations.length === 0) return
-		const combined = translations.map(formatPairText).join('\n\n---\n\n')
+		const combined = [...translations]
+			.reverse()
+			.map(formatPairText)
+			.join('\n\n---\n\n')
 		await navigator.clipboard.writeText(combined)
 	}
 
